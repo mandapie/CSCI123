@@ -1,0 +1,54 @@
+/************************
+Name: Amanda Pan
+Class: CSCI 123
+CRN: 12762
+Compiler: VS 2012 professional
+Homework 1: The area of the square minus the area of the circle
+************************/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double side = 0, radius = 0, area = 0;
+	double PI = 3.14;
+	char ans;
+
+	cout.setf(ios::fixed);
+	cout.setf(ios::showpoint);
+	cout.precision(2);
+
+	do
+	{
+		cout << "This is a calculation of an area difference between a square and a circle \n";
+		cout << "Please enter a side of a square: ";
+		cin >> side;
+		cin.ignore();
+
+		do
+		{
+			cout << "Please enter the radius of a circle: ";
+			cin >> radius;
+			cin.ignore();
+			
+			if (2 * radius > side)
+			{
+			   cout << "Please enter a diameter that is smaller than the side of the square \n";
+			}
+
+			if (2 * radius <= side)
+			{
+				area = (side * side) - (PI * radius * radius);
+				cout << "The remaining area is: " << area << "\n\n";
+				break;
+			}
+		}while (2 * radius > side);
+		
+		cout << "Do you want to continue? (Y to continue or any other key to quit)\n";
+		cin >> ans;
+		system("CLS");
+	}while (ans == 'Y' || ans == 'y');
+	
+	system("pause");
+	return 0;
+}

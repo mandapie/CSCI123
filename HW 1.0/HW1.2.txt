@@ -1,0 +1,51 @@
+/************************
+Name: Amanda Pan
+Class: CSCI 123
+CRN: 12762
+Homework 1.2: The area of the square minus the area of the circle
+************************/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double diameter = 0, side = 0, radius = 0, area = 0;
+	double PI = 3.14;
+	char ans;
+	
+	do
+	{
+		cout << "This is a calculation of an area difference between a square and a circle""\n";
+		cout << "Please enter a side of a square: ";
+		cin >> side;
+		cin.ignore();
+		
+		do
+		{
+			cout << "Please enter a diameter of a circle: ";
+			cin >> diameter;
+			cin.ignore();
+			
+			if (diameter >= side)
+			{
+				cout << "Please enter a diameter that is smaller than the side of the square: \n\n";
+			}
+			else
+				break;
+		}while (diameter >= side);
+		
+		if (diameter < side)
+		{
+			radius = diameter/2;
+			area = (side*side) - (PI*radius*radius);
+			cout << "The remaining area is: " << area << "\n\n";
+		}
+		
+		cout << "Do you want to continue? (Y to continue or any other key to quit)\n";
+		cin >> ans;
+		system("CLS");
+	}while (ans == 'Y' || ans == 'y');
+	
+	system("pause");
+	return 0;
+}
